@@ -1,0 +1,1775 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>ZORRO</title>
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<link rel="shortcut icon" href="faviconn.ico">
+<meta name="description" content="post-internet design agency" />
+
+<meta name="apple-touch-fullscreen" content="yes">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
+
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<link rel="apple-touch-icon" sizes="76x76" href="apple-touch-icon-76x76.png">
+<link rel="apple-touch-icon" sizes="120x120" href="apple-touch-icon-120x120.png">
+<link rel="apple-touch-icon" sizes="152x152" href="apple-touch-icon-152x152.png">
+
+<style>
+
+@import url(https://fonts.googleapis.com/css?family=Roboto:400&text=0123456789:);
+
+* {
+  box-sizing: border-box;
+}
+
+html, body {
+  height: 100%;
+}
+
+body {
+  font-family: 'Roboto', Helvetica, Arial, sans-serif;
+  margin: 0;
+  overflow: hidden;
+  padding: 0;
+  position: relative;
+}
+
+.vertical-align-middle{
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  display: table-cell;
+  vertical-align: middle;
+}
+
+.logo-hover-text{
+  opacity: 0;
+}
+
+.taxi-logo-text{
+  margin: 0;
+  color: #fff;
+  text-transform: none;
+  font-weight: normal;
+  line-height: 1px;
+}
+
+.twttr-msg p:nth-of-type(2) a{
+  text-decoration: none !important;
+}
+
+.box {
+  font-size: 50px;
+  overflow: hidden;
+  position: absolute;
+  text-transform: uppercase;
+  z-index: 99;
+}
+
+.box.small {
+  cursor: pointer;
+  font-size: 35px;
+}
+
+.box.inactive-side .img,
+.box.inactive-up-down .img {
+  height: 65px;
+  width: 120px;
+}
+
+.box .img img {
+  height: 100%;
+  width: 100%;
+}
+
+.box-table {
+  display: table;
+  height: 100%;
+  width: 100%;
+}
+
+.hover-text {
+  display: table-cell;
+  text-align: center;
+  vertical-align: middle;
+  width: 100%;
+  z-index: 100;
+}
+
+.content-text {
+  position: absolute;
+  z-index: 99;
+  top: 0;
+  left: 0;
+  right: 0;
+  padding: 30px 100px;
+  text-transform: none;
+  font-size:  35px;
+  opacity: 0;
+  -webkit-transform: scale(.01, .01);
+  -moz-transform: scale(.01, .01);
+  transform: scale(.01, .01);
+  -ms-transform-origin: 20% 40%; /* IE 9 */
+  -webkit-transform-origin: 20% 40%; /* Chrome, Safari, Opera */
+  transform-origin: 50% 50%;
+}
+
+#taxi {
+  background-color: #000000;
+  color: #fff;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  top: 0;
+}
+
+#taxi.inactive-side {
+  bottom: 20%;
+  right: 80%;
+}
+
+#taxi.inactive-up-down {
+  bottom: 80%;
+  right: 20%;
+}
+
+#taxi.inactive-side.inactive-up-down {
+  right: 80%;
+}
+
+#taxi.small {
+  font-size: 35px;
+}
+
+.contactHyperlink{
+  padding: 2px 3px;
+  text-transform: uppercase;
+}
+
+.socialText{
+  text-transform: uppercase;
+}
+
+.twttr-msg.twttr-active > div > p:first-child .socialText{
+  position: relative;
+}
+
+.emphasized:first-child{
+  padding: 4px 11px 2px 11px;
+}
+
+.about-text-landscape-second{
+  color: #000;
+  font-size: 15px;
+  font-weight: bold;
+  line-height: 130%;
+}
+
+.content-text-second{
+  display: none !important;
+}
+
+#about .content-text a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.about-text {
+  position: absolute;
+  left: 0;
+  right: 0;
+  opacity: 1;
+  z-index: 1;
+  transition: opacity .5s ease;
+}
+
+.about-text-hidden{
+  opacity: 0;
+  z-index: 0;
+}
+
+.span-50 {
+  font-size: 50px;
+}
+
+.span-70 {
+  font-size: 70px;
+}
+
+.span-36 {
+  font-size: 36px;
+}
+
+.span-60 {
+  font-size: 60px;
+}
+
+.span-55 {
+  font-size: 55px;
+}
+
+/* Twitter module */
+#twttr-box {
+  position: relative;
+  min-width: inherit;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+#twttr-box h1 {
+  font-weight: normal;
+  text-align: center;
+}
+
+#twttr-box a {
+  text-decoration: none;
+}
+
+.twttr-msg {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  display: table;
+  table-layout: fixed;
+  width: 100%;
+  margin: auto;
+  font-size: 31px;
+  font-weight: normal;
+  opacity: 0;
+  text-align: center;
+}
+
+.twttr-msg div:not(#social-icons) {
+  display: table-cell;
+  vertical-align: middle;
+}
+
+.twttr-msg > div > p:first-child{
+  width: 80%;
+  margin-left: auto;
+  margin-right: auto;
+  white-space: nowrap; 
+}
+
+.twttr-msg p:nth-of-type(1) {
+  max-height: 100px;
+  overflow: hidden;
+}
+
+.twttr-msg p div {
+  display: block;
+}
+
+.twttr-msg p:nth-of-type(2) {
+  font-size: 24px;
+}
+
+/* Tumblr widget */
+.nav {
+  display: table;
+  height: 100%;
+  position: absolute;
+  right: 50px;
+  text-align: center;
+  top: 0;
+  width: 12px;
+  z-index: 1000;
+}
+
+.nav-td {
+  display: table-cell;
+  vertical-align: middle;
+}
+
+.nav-circle {
+  background: #000;
+  border-radius: 10px;
+  display: block;
+  height: 12px;
+  text-align: center;
+  margin-bottom: 20px;
+  width: 12px;
+  border:2px solid rgb(0,0,0);
+}
+.nav .nav-td .active {
+  width: 16px;
+  height: 16px;
+  margin-left: -2px;
+}
+#tumblr-box {
+  height: 366px;
+  position: relative;
+}
+
+.nav-next,
+.nav-prev {
+  color: #fff;
+  cursor: pointer;
+  font-family: 'Futura', Helvetica, Arial, sans-serif;
+  font-size: 120px;
+  position: absolute;
+  text-shadow: 0 0 3px #000;
+  top: 150px;
+  z-index: 1010;
+}
+
+.nav-next {
+  right: 50%;
+  margin-right: -440px;
+}
+
+.nav-prev {
+  left: 50%;
+  margin-left: -440px;
+}
+
+.tumblr-post.hidden {
+  display: none;
+}
+
+#about .tumblr-post-container,
+#tumblr-box .tumblr-post-container {
+  cursor: pointer;
+  left: 50%;
+  margin-left: -300px;
+  opacity: 0;
+  position: absolute;
+  top: 0;
+  width: 600px;
+  height: 100%;
+}
+
+#about .tumblr-post-container{
+  left: 0;
+  margin-left: 0;
+  width: 100%;
+  text-align: left;
+}
+
+#about .tumblr-post-container.active,
+#tumblr-box .tumblr-post-container.active {
+  opacity: 1;
+  z-index: 100;
+}
+
+#tumblr-box h1 {
+  font-weight: normal;
+  line-height: 368px;
+  margin: 0;
+  text-align:center;
+}
+
+.tumblr-post-container a {
+  color: #1a1a1a;
+  text-decoration: none;
+}
+
+.tumblr-post-container .tumblr-description {
+  height: 88px;
+  max-width: 80%;
+  overflow: hidden;
+}
+
+.tumblr-post-container p {
+  font-size: 17px;
+  line-height: 18px;
+  margin: 0 0 15px;
+  text-align: left;
+  text-transform: none;
+  word-wrap: break-word;
+}
+
+.tumblr-post-container p:first-child {
+  margin-bottom: 15px;
+}
+
+.tumblr-post-container img {
+  max-height: 313px;
+  left: 50%;
+  -webkit-transform: translate(-50%);
+  transform: translate(-50%);
+  position: relative;
+}
+
+.tumblr-post-container iframe {
+  width: 100%;
+  height: 300px;
+}
+
+.tumblr-post-container .iframe-fix {
+  height: 263px;
+  left: 0;
+  position: absolute;
+  top: 0;
+  width: 468px;
+  z-index: 1000;
+}
+
+.tumblr-post-container .tumblr-post-wrapper{
+  width: 100%;
+  text-align: center;
+}
+
+.tumblr-post-container .tumblr-post-individual{
+  position: absolute;
+  z-index: 1;
+  width: 600px;
+  height: 100%;
+  display: table;
+  transition: opacity .5s ease;
+}
+
+.tumblr-post-container .tumblr-post-individual-hidden{
+  opacity: 0;
+  z-index: 0;
+}
+
+.tumblr-post-container.active p {
+  display: none;
+}
+
+.aboutFirst-p {
+  min-width:645px;
+  font-size: 37px;
+  line-height: 45px;
+}
+
+.image-caption {
+  color: #000;
+  text-align: center;
+  font-size: 18px;
+  width: 100%;
+  padding-top: 5%;
+  line-height: normal;
+}
+
+
+.audioDebug{
+  height: 75%;
+  max-height: 250px;
+}
+
+.loader-wrapper{
+  position: absolute;
+  z-index: 10000;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  width: 100%;
+  height: 100%;
+  margin: auto;
+  background-color: inherit;
+}
+
+.content-text-taxi{
+  z-index: 100;
+  bottom: 0;
+  display: table;
+  width: 100%;
+  height: 100%;
+  padding: 0;
+  opacity: 0;
+  -webkit-transform: scale(1, 1);
+  -moz-transform: scale(1, 1);
+  transform: scale(1, 1);
+}
+
+.content-text-taxi .content-inner-taxi-wrapper{
+  height: 100% !important;
+}
+
+.content-text-taxi .tumblr-posts,
+.content-text-taxi .tumblr-post-wrapper{
+  height: 100% !important;
+}
+
+.content-text-taxi svg{
+  display: block;
+  width: 100%;
+  height: 75%;
+  max-height: 100%;
+  -ms-transform-origin: center;
+  -webkit-transform-origin: center;
+  transform-origin: center;
+  -webkit-transition: height .9s ease;
+  transition: height .9s ease;
+}
+
+.content-text-taxi-not-active svg{
+  height: 85px;
+}
+
+.content-text-taxi svg stop{
+  -webkit-transition: stop-color 1s ease;
+  transition: stop-color 1s ease;
+}
+
+.content-text-taxi #tumblr-box .tumblr-post-container{
+  left: 0;
+  width: 100%;
+  margin: auto;
+}
+
+.content-text-taxi .tumblr-post-container .tumblr-post-individual{
+  width: 100%;
+}
+
+
+@media screen and (max-width: 1024px) {
+
+
+.content-text-first .content-cell:first-child{
+  margin-top: 0;
+}
+
+p[class*="-p "]{
+  min-width: 0 !important;
+  max-width: 90% !important;
+  width: 90% !important;
+  height: 100%;
+  margin: 0 auto;
+  display: table;
+  line-height: 150%;
+  text-align: center;
+}
+
+.content-text-first .content-cell:not(:first-child){
+  display: none !important;
+}
+
+#tumblr-box {
+  height: 200px;
+}
+
+.tumblr-post-container{
+  bottom: 0;
+}
+
+.tumblr-post-wrapper{
+  height: 250px;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  margin: auto;
+}
+
+.nav{
+  height: 200px !important;
+  bottom: 0;
+}
+
+
+}
+
+@media screen and (max-width: 1024px) and (orientation : landscape) {
+
+p[class*="-p "]{
+  font-size: 3.5vw;
+}
+
+.control-color-by-rotating-device{
+  display: inline-block;
+  text-align: left;
+  padding-top: 4px;
+  font-size: 2.3vw;
+  line-height: 110%;
+  letter-spacing: 1px;
+}
+
+.content-text-taxi svg{
+  height: 85%;
+}
+
+.content-text-taxi-not-active svg{
+  height: 95px;
+}
+
+}
+
+@media screen and (max-width: 757px) and (orientation : landscape) {
+
+.box.small {
+  font-size: 25px;
+}
+
+.taxi-logo-svg{
+  width: 75% !important;
+  height: 75% !important;
+  margin-top: 4%;
+}
+
+.taxi-logo-color {
+    fill: #FFF;
+}
+
+#taxi.small {
+  font-size: 35px;
+}
+
+.content-text-first .content-cell:not(:first-child){
+  display: none !important;
+}
+
+
+.about-text-landscape{
+  font-size: 2.5vw;
+}
+
+.about-text-landscape-second{
+  font-size: 1.5vw;
+}
+
+.content-cell-about-text-landscape{
+  height: 45px !important;
+}
+
+
+.twttr-msg{
+  font-size: 3.5vw;
+}
+
+.twttr-msg p:nth-of-type(2) {
+  font-size: 2.2vw;
+}
+
+#social-icons .icon{
+  margin: 0 10px;
+}
+
+a[class$="copy-bg-parent"] svg {
+  width: 69% !important;
+  height: 69% !important;
+}
+
+.image-caption{
+  margin-top: -2%;
+}
+
+.nav{
+  height: 70%;
+}
+
+.content-text-taxi-not-active svg{
+  height: 65px;
+}
+
+}
+
+@media screen and (min-width: 480px) and (max-width: 840px) and (orientation : portrait) {
+
+.box {
+  display: block;
+  width: 100%;
+  height: 12%;
+  font-size: 50px;
+  overflow: hidden;
+  position: relative;
+  text-transform: uppercase;
+  z-index: 99;
+}
+
+.box.small {
+  font-size: 35px;
+}
+
+#taxi {
+  height: 100%;
+  background-color: #000000;
+  color: transparent;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  top: 0;
+}
+
+#taxi.inactive-side {
+  bottom: 0;
+  right: 0;
+}
+
+#taxi.inactive-up-down {
+  bottom: 0;
+  right: 0;
+}
+
+#taxi.inactive-side.inactive-up-down {
+  right: 0;
+}
+
+#taxi.small {
+  font-size: 35px;
+}
+
+.taxi-logo-svg {
+  margin-top: 4%;
+  width: 100% !important;
+  height: 100% !important;
+}
+
+
+.content-text-first .content-cell:not(:first-child){
+  display: none !important;
+}
+
+
+.about-text{
+  width: 72% !important;
+  margin: 0 auto;
+  font-size: 5vw;
+}
+
+#tumblr-box {
+  height: 300px;
+}
+
+.tumblr-post-container{
+  bottom: 0;
+}
+
+.tumblr-post-wrapper{
+  height: 300px;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  margin: auto;
+}
+
+.twttr-msg{
+  font-size: 33px;
+}
+
+.twttr-msg p:nth-of-type(2) {
+  font-size: 22px;
+}
+
+#social-icons{
+  margin-top: 2%;
+}
+
+#social-icons .icon{
+  margin: 0 10px;
+}
+
+a[class$="copy-bg-parent"] svg {
+  width: 85% !important;
+  height: 85% !important;
+}
+
+.nav-circle {
+  display: none;
+  background: #fff !important;
+  border-color: #fff !important;
+}
+
+.nav-td .active{
+  background: transparent !important;
+}
+
+.image-caption{
+  color: #fff;
+  font-size: 45%;
+}
+
+.content-text-taxi svg{
+  height: 85%;
+}
+
+.content-text-taxi-not-active svg{
+  height: 41%;
+}
+
+
+}
+
+@media screen and (max-width: 480px) and (orientation : portrait) {
+
+.box {
+  display: block;
+  width: 100%;
+  height: 12%;
+  font-size: 50px;
+  overflow: hidden;
+  position: relative;
+  text-transform: uppercase;
+  z-index: 99;
+}
+
+.box.small {
+  font-size: 25px;
+}
+
+#taxi {
+  height: 100%;
+  background-color: #000000;
+  color: transparent;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  top: 0;
+}
+
+#taxi.inactive-side {
+  bottom: 0;
+  right: 0;
+}
+
+#taxi.inactive-up-down {
+  bottom: 0;
+  right: 0;
+}
+
+#taxi.inactive-side.inactive-up-down {
+  right: 0;
+}
+
+#taxi.small {
+  font-size: 35px;
+}
+
+.taxi-logo-svg {
+  margin-top: 7%;
+  width: 68% !important;
+  height: 68% !important;
+}
+
+
+.content-text-first .content-cell:not(:first-child){
+  display: none !important;
+}
+
+
+#about .content-cell:nth-of-type(3) div{
+  padding-top: 22px;
+}
+
+#about .content-cell:nth-of-type(3) div,
+.about-text{
+  width: 72% !important;
+  margin: 0 auto;
+  font-size: 5vw;
+}
+
+
+#tumblr-box {
+  height: 200px;
+}
+
+.tumblr-post-container{
+  bottom: 0;
+}
+
+.tumblr-post-wrapper{
+  height: 200px;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  margin: auto;
+}
+
+
+.twttr-msg{
+  font-size: 6.5vw;
+}
+
+.twttr-msg p:nth-of-type(2) {
+  font-size: 5.7vw;
+}
+
+#social-icons .icon{
+  margin: 0 7px;
+}
+
+a[class$="copy-bg-parent"] svg {
+  width: 75% !important;
+  height: 75% !important;
+}
+
+.nav-circle {
+  display: none;
+  background: #fff !important;
+  border-color: #fff !important;
+}
+
+.nav-td .active{
+  background: transparent !important;
+}
+
+.image-caption{
+  color: #fff;
+}
+
+
+
+.content-text-taxi svg{
+  height: 85%;
+}
+
+.content-text-taxi-not-active svg{
+  height: 33%;
+}
+
+}
+
+</style>
+
+<link rel="stylesheet" type="text/css" href="assets/css/style.css">
+<link rel="stylesheet" type="text/css" href="assets/css/colors.css">
+
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+
+<meta name="google-translate-customization" content="91f03b067a998e38-ab43c7bfb48a9c7a-g76e7daa7caaef566-f">
+
+<script type="text/javascript">
+
+  var widthForMobile = '840',
+      widthForMobileSection = '12',
+      widthForMobileSectionExpanded = '64',
+      fontSize = '35',
+      fontSizeMobile = '25',
+      webGLObjectName = 'panels';
+
+</script>
+
+</head>
+<body>
+
+    <div id="taxi" class="box active">
+      <div class="box-table">
+        <div class="content-text content-text-taxi">
+          <div class="content-cell vertical-align-middle">
+            <div class="content-inner-taxi-wrapper" id="tumblr-box">
+              <div class="tumblr-posts">
+
+                
+              <div class="work-section-wrapper tumblr-post-container active" style="top: 0px; opacity: 1;">
+                <div class="tumblr-post-wrapper">
+
+ 				<!-- post 1 -->
+
+                <div class="tumblr-post tumblr-post-individual">
+
+	              	<div class="vertical-align-middle">
+
+	              		<svg xmlns="http://www.w3.org/2000/svg" xml:space="preserve" style="shape-rendering:geometricPrecision; text-rendering:geometricPrecision; image-rendering:optimizeQuality; fill-rule:evenodd; clip-rule:evenodd" viewBox="0 0 17.0287 30" xmlns:xlink="http://www.w3.org/1999/xlink">
+							<defs>
+
+								<linearGradient id="_172304488" class="initially-zero last-to-first" x1="0%" y2="0%">
+								  <stop offset="0%" stop-color="rgb(0,0,0)"></stop>
+								  <stop offset="100%" stop-color="rgb(255,255,255)"></stop>
+								</linearGradient>
+
+								<linearGradient id="_172303408" class="initially-zero first-to-last" x1="0%" y2="0%">
+								  <stop offset="25%" stop-color="rgb(255,255,255)"></stop>
+								  <stop offset="85%" stop-color="rgb(0,0,0)"></stop>
+								</linearGradient>
+
+								<linearGradient id="_172161832" x1="0%" y1="0%" x2="100%" y2="0%" class="zero-to-hundred last-to-first">
+								  <stop offset="0%" stop-color="rgb(0,0,0)"></stop>
+								  <stop offset="100%" stop-color="rgb(255,255,255)"></stop>
+								</linearGradient>
+
+								<linearGradient id="_172318528" class="initially-zero first-to-last" x1="0%" y2="0%">
+								  <stop offset="2%" stop-color="rgb(255,255,255)"></stop>
+								  <stop offset="85%" stop-color="rgb(0,0,0)"></stop>
+								</linearGradient>
+
+								<linearGradient id="_172316368" class="initially-zero first-to-last" x1="0%" y2="0%">
+								  <stop offset="5%" stop-color="rgb(255,255,255)"></stop>
+								  <stop offset="70%" stop-color="rgb(0,0,0)"></stop>
+								</linearGradient>
+
+								<linearGradient id="_172304224" class="initially-zero last-to-first" x1="0%" y2="0%">
+								  <stop offset="25%" stop-color="rgb(0,0,0)"></stop>
+								  <stop offset="99%" stop-color="rgb(255,255,255)"></stop>
+								</linearGradient>
+
+								<linearGradient id="_172305688" class="initially-zero last-to-first" x1="0%" y2="0%">
+								  <stop offset="15%" stop-color="rgb(0,0,0)"></stop>
+								  <stop offset="85%" stop-color="rgb(255,255,255)"></stop>
+								</linearGradient>
+
+								<linearGradient id="_172162144" class="initially-zero last-to-first" x1="0%" y2="0%">
+								  <stop offset="30%" stop-color="rgb(0,0,0)"></stop>
+								  <stop offset="99%" stop-color="rgb(255,255,255)"></stop>
+								</linearGradient>
+
+								<linearGradient id="_172158064" class="initially-zero last-to-first" x1="0%" y2="0%">
+								  <stop offset="5%" stop-color="rgb(0,0,0)"></stop>
+								  <stop offset="65%" stop-color="rgb(255,255,255)"></stop>
+								</linearGradient>
+
+								<linearGradient id="_172158976" class="initially-zero first-to-last" x1="0%" y2="0%">
+								  <stop offset="0%" stop-color="rgb(255,255,255)"></stop>
+								  <stop offset="85%" stop-color="rgb(0,0,0)"></stop>
+								</linearGradient>
+
+								<linearGradient id="_171901584" class="initially-zero first-to-last" x1="0%" y2="0%">
+								  <stop offset="0%" stop-color="rgb(255,255,255)"></stop>
+								  <stop offset="100%" stop-color="rgb(0,0,0)"></stop>
+								</linearGradient>
+
+								<linearGradient id="_171900264" class="initially-zero last-to-first" x1="0%" y2="0%">
+								  <stop offset="0%" stop-color="rgb(0,0,0)"></stop>
+								  <stop offset="100%" stop-color="rgb(255,255,255)"></stop>
+								</linearGradient>
+
+								<linearGradient id="_171508008" class="initially-zero first-to-last" x1="0%" y2="0%">
+								  <stop offset="0%" stop-color="rgb(255,255,255)"></stop>
+								  <stop offset="100%" stop-color="rgb(0,0,0)"></stop>
+								</linearGradient>
+
+								<linearGradient id="_171898848" class="initially-zero last-to-first" x1="0%" y2="0%">
+								  <stop offset="15%" stop-color="rgb(0,0,0)"></stop>
+								  <stop offset="100%" stop-color="rgb(255,255,255)"></stop>
+								</linearGradient>
+
+								<linearGradient id="_171508848" x1="0%" y1="80%" x2="0%" y2="0%" class="zero-to-hundred first-to-last">
+								  <stop offset="0%" stop-color="rgb(255,255,255)"></stop>
+								  <stop offset="80%" stop-color="rgb(0,0,0)"></stop>
+								</linearGradient>
+
+								<linearGradient id="_114664856" x1="0%" y1="100%" x2="0%" y2="0%" class="zero-to-hundred first-to-last">
+								  <stop offset="0%" stop-color="rgb(255,255,255)"></stop>
+								  <stop offset="100%" stop-color="rgb(0,0,0)"></stop>
+								</linearGradient>
+
+								<linearGradient id="_115086384" x1="0%" y1="90%" x2="0%" y2="0%" class="zero-to-hundred first-to-last">
+								  <stop offset="0%" stop-color="rgb(255,255,255)"></stop>
+								  <stop offset="90%" stop-color="rgb(0,0,0)"></stop>
+								</linearGradient>
+
+								<linearGradient id="_115104856" x1="15%" y1="100%" x2="0%" y2="0%" class="zero-to-hundred last-to-first">
+								  <stop offset="15%" stop-color="rgb(0,0,0)"></stop>
+								  <stop offset="100%" stop-color="rgb(255,255,255)"></stop>
+								</linearGradient>
+
+								<linearGradient id="_171897696" x1="15%" y1="100%" x2="35%" y2="0%" class="zero-to-hundred last-to-first">
+								  <stop offset="30%" stop-color="rgb(0,0,0)"></stop>
+								  <stop offset="100%" stop-color="rgb(255,255,255)"></stop>
+								</linearGradient>
+
+								<linearGradient id="_114765880" x1="15%" y1="85%" x2="35%" y2="0%" class="zero-to-hundred first-to-last">
+								  <stop offset="4%" stop-color="rgb(255,255,255)"></stop>
+								  <stop offset="85%" stop-color="rgb(0,0,0)"></stop>
+								</linearGradient>
+
+								<linearGradient id="_114668240" x1="15%" y1="98%" x2="0%" y2="0%" class="zero-to-hundred last-to-first">
+								  <stop offset="15%" stop-color="rgb(0,0,0)"></stop>
+								  <stop offset="95%" stop-color="rgb(255,255,255)"></stop>
+								</linearGradient>
+
+								<linearGradient id="_115104304" x1="15%" y1="85%" x2="35%" y2="0%" class="zero-to-hundred first-to-last">
+								  <stop offset="4%" stop-color="rgb(255,255,255)"></stop>
+								  <stop offset="65%" stop-color="rgb(0,0,0)"></stop>
+								</linearGradient>
+
+								<linearGradient id="_115105144" x1="30%" y1="118%" x2="0%" y2="30%" class="zero-to-hundred first-to-last">
+								  <stop offset="5%" stop-color="rgb(255,255,255)"></stop>
+								  <stop offset="65%" stop-color="rgb(0,0,0)"></stop>
+								</linearGradient>
+
+								<linearGradient id="_114814440" x1="0%" y1="85%" x2="40%" y2="10%" class="zero-to-hundred first-to-last">
+								  <stop offset="5%" stop-color="rgb(255,255,255)"></stop>
+								  <stop offset="80%" stop-color="rgb(0,0,0)"></stop>
+								</linearGradient>
+
+								<linearGradient id="_114669200" x1="15%" y1="95%" x2="40%" y2="10%" class="zero-to-hundred first-to-last">
+								  <stop offset="5%" stop-color="rgb(255,255,255)"></stop>
+								  <stop offset="80%" stop-color="rgb(0,0,0)"></stop>
+								</linearGradient>
+
+								<linearGradient id="_115084392" x1="0%" y1="90%" x2="0%" y2="0%" class="zero-to-hundred first-to-last">
+								  <stop offset="0%" stop-color="rgb(255,255,255)"></stop>
+								  <stop offset="90%" stop-color="rgb(0,0,0)"></stop>
+								</linearGradient>
+
+								<linearGradient id="_172160248" x1="15%" y1="85%" x2="35%" y2="0%" class="zero-to-hundred first-to-last">
+								  <stop offset="4%" stop-color="rgb(255,255,255)"></stop>
+								  <stop offset="75%" stop-color="rgb(0,0,0)"></stop>
+								</linearGradient>
+
+								<linearGradient id="_114666320" x1="35%" y1="85%" x2="35%" y2="0%" class="zero-to-hundred first-to-last">
+								  <stop offset="4%" stop-color="rgb(255,255,255)"></stop>
+								  <stop offset="65%" stop-color="rgb(0,0,0)"></stop>
+								</linearGradient>
+
+								<linearGradient id="_115087416" class="initially-zero last-to-first" x1="0%" y2="0%">
+								  <stop offset="15%" stop-color="rgb(0,0,0)"></stop>
+								  <stop offset="99%" stop-color="rgb(255,255,255)"></stop>
+								</linearGradient>
+
+								<linearGradient id="_115106848" y1="35%" class="initially-zero last-to-first" x1="0%" y2="0%">
+								  <stop offset="15%" stop-color="rgb(0,0,0)"></stop>
+								  <stop offset="99%" stop-color="rgb(255,255,255)"></stop>
+								</linearGradient>
+
+								<linearGradient id="_115083432" x1="60%" y1="100%" x2="0%" y2="20%" class="zero-to-hundred first-to-last">
+								  <stop offset="0%" stop-color="rgb(255,255,255)"></stop>
+								  <stop offset="70%" stop-color="rgb(0,0,0)"></stop>
+								</linearGradient>
+
+								<linearGradient id="_115082856" x1="25%" y1="95%" x2="5%" y2="0%" class="zero-to-hundred last-to-first">
+								  <stop offset="15%" stop-color="rgb(0,0,0)"></stop>
+								  <stop offset="75%" stop-color="rgb(255,255,255)"></stop>
+								</linearGradient>
+
+								<linearGradient id="_114666992" x1="0%" y1="35%" x2="50%" y2="0%" class="unordered first-to-last">
+								  <stop offset="5%" stop-color="rgb(255,255,255)"></stop>
+								  <stop offset="100%" stop-color="rgb(0,0,0)"></stop>
+								</linearGradient>
+
+								<linearGradient id="_114663632" x1="0%" y1="100%" x2="0%" y2="0%" class="initially-zero first-to-last">
+								  <stop offset="0%" stop-color="rgb(255,255,255)"></stop>
+								  <stop offset="85%" stop-color="rgb(0,0,0)"></stop>
+								</linearGradient>
+
+								<linearGradient id="_114760152" x1="60%" y1="116%" x2="0%" y2="50%" class="zero-to-hundred first-to-last">
+								  <stop offset="1%" stop-color="rgb(255,255,255)"></stop>
+								  <stop offset="70%" stop-color="rgb(0,0,0)"></stop>
+								</linearGradient>
+
+								<linearGradient id="_114815040" x1="35%" y1="85%" x2="55%" y2="0%" class="zero-to-hundred last-to-first">
+								  <stop offset="4%" stop-color="rgb(0,0,0)"></stop>
+								  <stop offset="65%" stop-color="rgb(255,255,255)"></stop>
+								</linearGradient>
+
+								<linearGradient id="_115090776" x1="60%" y1="108%" x2="0%" y2="20%" class="zero-to-hundred first-to-last">
+								  <stop offset="0%" stop-color="rgb(255,255,255)"></stop>
+								  <stop offset="85%" stop-color="rgb(0,0,0)"></stop>
+								</linearGradient>
+
+								<linearGradient id="_114844264" x1="120%" y1="80%" x2="0%" y2="100%" class="zero-to-hundred first-to-last">
+								  <stop offset="0%" stop-color="rgb(255,255,255)"></stop>
+								  <stop offset="90%" stop-color="rgb(0,0,0)"></stop>
+								</linearGradient>
+
+								<linearGradient id="_114764824" x1="15%" y1="90%" x2="0%" y2="10%" class="zero-to-hundred last-to-first">
+								  <stop offset="3.5%" stop-color="rgb(0,0,0)"></stop>
+								  <stop offset="90%" stop-color="rgb(255,255,255)"></stop>
+								</linearGradient>
+
+								<linearGradient id="_114664352" x1="15%" y1="85%" x2="35%" y2="25%" class="zero-to-hundred first-to-last">
+								  <stop offset="4%" stop-color="rgb(255,255,255)"></stop>
+								  <stop offset="95%" stop-color="rgb(0,0,0)"></stop>
+								</linearGradient>
+
+							</defs>
+							<g id="Layer_x0020_1">
+								<metadata id="CorelCorpID_0Corel-Layer"/>
+								<g id="_172306864">
+									<polygon id="_172304488" fill="url(#_172304488)" class="fil0" fill="url(#_172304488)" points="13.7791,26.217 9.04943,30 8.10202,27.7693 "/>
+									<polygon id="_172303408" fill="url(#_172303408)" class="fil1" fill="url(#_172303408)" points="9.04943,30 6.10034,25.8625 8.10202,27.7693 "/>
+									<path id="_172318528" fill="url(#_172318528)" class="fil2" fill="url(#_172318528)" d="M6.10034 25.8625l-1.17189 -1.91511c0.474035,-0.182929 0.949823,-0.358811 1.42717,-0.528453l1.52181 1.94697 0.224587 2.40337 -2.00168 -1.90678z"/>
+									<polygon id="_172161832" fill="url(#_172161832)" class="fil3" fill="url(#_172161832)" points="16.8464,15.2979 15.2804,21.8343 12.6362,21.9321 "/>
+									<polygon id="_172160248" fill="url(#_172160248)" class="fil2" points="17.0287,12.4264 16.8464,15.2979 14.6309,17.4329 15.2782,15.8691 "/>
+									<polygon id="_171901584" fill="url(#_171901584)" class="fil3" points="4.92844,23.9474 3.67046,24.1757 3.53348,23.4742 4.73756,23.2151 "/>
+									<polygon id="_171900264" fill="url(#_171900264)" class="fil1" points="3.67046,24.1757 2.76882,23.0441 3.53348,23.4742 "/>
+									<polygon id="_171508008" fill="url(#_171508008)" class="fil3" points="2.76882,23.0441 2.61426,22.2537 3.53348,23.4742 "/>
+									<polygon id="_115086384" fill="url(#_115086384)" class="fil2" points="2.61426,22.2537 2.51407,19.1051 3.19787,17.7245 "/>
+									<polygon id="_114669200" fill="url(#_114669200)" class="fil1" points="2.51407,19.1051 0.891429,14.6127 3.19787,17.7245 "/>
+									<polygon id="_114666320" fill="url(#_114666320)" class="fil1" points="16.8653,8.68274 17.0287,12.4264 15.2782,15.8691 14.9054,11.6418 "/>
+									<polygon id="_114664352" fill="url(#_114664352)" class="fil2" points="15.622,0 16.8653,8.68274 14.9054,11.6418 "/>
+									<polygon id="_115090776" fill="url(#_115090776)" class="fil3" points="10.3053,5.98737 10.3053,5.98737 15.622,0 14.9054,11.6418 9.55968,6.83544 "/>
+									<polygon id="_114844264" fill="url(#_114844264)" class="fil2" points="7.85433,5.84094 7.85524,5.84079 10.3053,5.98737 9.55968,6.83544 7.85451,5.84105 7.85485,5.84085 "/>
+									<polygon id="_114764824" fill="url(#_114764824)" class="fil2" points="0,0.518555 5.1793,6.29004 5.17932,6.29004 5.17928,6.29019 5.80845,6.98631 5.80888,6.98608 5.8088,6.98634 0.887504,10.501 "/>
+									<polygon id="_114760152" fill="url(#_114760152)" class="fil4" points="0.88752,10.5027 0.88752,10.5011 0.887504,10.501 5.809,6.9862 6.1619,9.35769 "/>
+									<polygon id="_114815040" fill="url(#_114815040)" class="fil3" points="5.17932,6.29004 7.85485,5.84085 5.80845,6.98631 5.17928,6.29019 "/>
+									<polygon id="_114663632" fill="url(#_114663632)" class="fil1" points="6.1619,9.35769 9.55968,6.83544 7.85451,5.84105 5.80879,6.98635 5.80888,6.98608 "/>
+									<polygon id="_115083432" fill="url(#_115083432)" class="fil4" points="6.1619,9.35769 14.9054,11.6418 9.55968,6.83544 "/>
+									<polygon id="_114666992" fill="url(#_114666992)" class="fil3" points="0.887504,10.501 3.47485,13.9412 5.05189,15.2189 6.1619,9.35769 "/>
+									<polygon id="_115087416" fill="url(#_115087416)" class="fil2" points="6.1619,9.35769 5.05189,15.2189 14.9054,11.6418 "/>
+									<polygon id="_115082856" fill="url(#_115082856)" class="fil2" points="0.887504,10.501 0.891429,14.6127 3.47485,13.9412 "/>
+									<polygon id="_115084392" fill="url(#_115084392)" class="fil3" points="3.47485,13.9412 3.19787,17.7245 0.891429,14.6127 "/>
+									<polygon id="_114668240" fill="url(#_114668240)" class="fil4" points="3.19787,17.7245 4.28636,18.2147 5.05189,15.2189 3.47485,13.9412 "/>
+									<polygon id="_114664856" fill="url(#_114664856)" class="fil4" points="2.61426,22.2537 3.34793,22.4402 3.53348,23.4742 "/>
+									<polygon id="_171508848" fill="url(#_171508848)" class="fil1" points="3.34793,22.4402 4.61969,22.6134 3.53348,23.4742 "/>
+									<polygon id="_171898848" fill="url(#_171898848)" class="fil2" points="4.61969,22.6134 3.53348,23.4742 4.73756,23.2151 "/>
+									<polygon id="_171897696" fill="url(#_171897696)" class="fil3" points="6.50669,18.0994 4.28636,18.2147 3.34793,22.4402 4.61969,22.6134 "/>
+									<polygon id="_115104856" fill="url(#_115104856)" class="fil1" points="4.28636,18.2147 3.19787,17.7245 2.61426,22.2537 3.34793,22.4402 "/>
+									<polygon id="_115104304" fill="url(#_115104304)" class="fil1" points="5.05189,15.2189 7.84666,14.2043 6.50669,18.0994 4.28636,18.2147 "/>
+									<polygon id="_115105144" fill="url(#_115105144)" class="fil5" points="7.84666,14.2043 9.56035,17.7453 6.50669,18.0994 "/>
+									<polygon id="_114814440" fill="url(#_114814440)" class="fil4" points="15.2782,15.8691 7.84666,14.2043 9.56035,17.7453 "/>
+									<polygon id="_115106848" fill="url(#_115106848)" class="fil3" points="14.9054,11.6418 15.2782,15.8691 7.84666,14.2043 "/>
+									<polygon id="_114765880" fill="url(#_114765880)" class="fil0" points="9.56035,17.7453 7.70353,22.2628 4.73756,23.2151 4.61969,22.6134 6.50669,18.0994 "/>
+									<path id="_172158064" fill="url(#_172158064)" class="fil4" d="M4.73756 23.2151c0.063626,0.244091 0.127256,0.488181 0.190886,0.732272 1.935,-0.74672 3.89929,-1.37632 5.87978,-1.94117 -1.0349,0.0855354 -2.06979,0.171071 -3.10469,0.256602l-2.96597 0.952299z"/>
+									<polygon id="_172158976" fill="url(#_172158976)" class="fil1" points="15.2782,15.8691 14.6309,17.4329 7.70353,22.2628 9.56035,17.7453 "/>
+									<polygon id="_172162144" fill="url(#_172162144)" class="fil0" points="16.8464,15.2979 14.6309,17.4329 7.70353,22.2628 10.8082,22.0062 12.6362,21.9321 "/>
+									<path id="_172316368" fill="url(#_172316368)" class="fil3" d="M6.35562 23.4189l1.52181 1.94697 0.902594 -2.75457c-0.811965,0.253902 -1.6204,0.521866 -2.42441,0.807594z"/>
+									<path id="_172305688" fill="url(#_172305688)" class="fil1" d="M15.2804 21.8343l-7.40295 3.53157 0.902594 -2.75457 0.000125984 -5.51181e-005c0.67378,-0.210685 1.34997,-0.411673 2.02807,-0.605071l4.47217 -0.171882z"/>
+									<polygon id="_172304224" fill="url(#_172304224)" fill="url(#_172304224)" class="fil4" points="15.2804,21.8343 13.7791,26.217 8.10202,27.7693 7.87743,25.3659 "/>
+								</g>
+							</g>
+							</svg>
+	
+		            </div>
+
+                </div>                  
+				   	    
+				<!-- post 1 - end -->
+
+                </div>
+              </div>	
+              </div>
+            </div>
+          </div>
+        </div> 
+      </div>
+    </div>
+
+    <!-- Hidden elements, used to get dynamic colors ::  -->
+    <div class="transitionTime getColors"></div>
+    <div class="Color-taxi Color-text-taxi getColors"></div>
+    <div class="Color-work Color-text-work getColors"></div>
+    <div class="Color-about Color-text-about getColors"></div>
+    <div class="Color-contact Color-text-contact getColors"></div>
+
+<script src="assets/js/lib/jquery.js"></script>
+<script src="assets/js/lib/jquery.touchswipe.min.js"></script>
+<script src="assets/js/lib/detectMobile.js"></script>
+<script src="assets/js/lib/jquery.touchwipe.js"></script>
+<script src="assets/js/lib/jquery.mousewheel.js"></script>
+<script src="assets/js/lib/TweenLite.min.js"></script>
+<script src="assets/js/lib/jquery.gsap.min.js"></script>
+<script src="assets/js/lib/CSSPlugin.min.js"></script>
+<script src="assets/js/lib/ios-no-bounce.js"></script>
+<!-- <script src="assets/js/lib/three.min.js"></script> -->
+<!-- <script src="assets/js/lib/TrackballControls.js"></script> -->
+<!-- <script src="assets/js/lib/OBJLoader.js"></script> -->
+<script src="assets/js/lib/Detector.js"></script>
+<!-- <script src="./assets/js/lib/minivents.min.js"></script> -->
+<script src='assets/js/lib/stats.min.js'></script>
+<!--
+<script src='./assets/js/lib/dat.gui.min.js'></script>
+<script src="./assets/js/lib/atutil.js"></script>
+<script src="./assets/js/Main.js"></script>
+<script src="./assets/js/AudioHandler.js"></script>
+<script src="./assets/js/ControlsHandler.js"></script>
+-->
+<!-- <script src="assets/js/webGLHandler.js"></script> -->
+
+<script src="assets/js/app.js"></script>
+<script src="assets/js/color-animation.js"></script>
+<!-- <script src="assets/js/social.js"></script> -->
+
+<script>
+
+$(function(){
+
+(function(){
+
+var imageCaptionsArray = [
+                          
+                          {caption:''}
+                          
+                          ];
+
+for(var i = 0, imageCaptions_ = document.getElementsByClassName('image-caption'), imageCaptionItem; i < imageCaptionsArray.length; i++){
+
+  if(typeof imageCaptions_[i] == 'undefined') break;
+
+  imageCaptionItem = imageCaptionsArray[i];
+  
+  if(imageCaptionItem instanceof Object && !(imageCaptionItem instanceof Array) && 'caption' in imageCaptionItem && imageCaptionItem.hasOwnProperty('caption')) imageCaptions_[i].innerHTML = imageCaptionItem.caption; 
+
+  }
+
+})();
+
+var animSpeed = parseFloat($('.transitionTime').css('transition-duration'));
+
+  function getHEX(color){
+      
+      var color = color;
+      
+          if(/^#/.test(color)){
+            
+            return color.toUpperCase();
+            
+          }else{
+            
+            color = color.replace(/rgb|\(|\)|\s/g,'').match(/^(\d+)\,(\d+)\,(\d+)\,?(\d{0,}\.?\d{0,})$/);
+            
+            return (((1 << 24) + (parseInt(color[1]) << 16) + (parseInt(color[2]) << 8) + parseInt(color[3])).toString(16).slice(1)).toUpperCase();
+          
+            }
+       
+      return false;
+      
+    }
+
+  function decimalToHex(decimal){
+
+    var hex = decimal.toString(16);
+        
+        if(hex.length == 1) hex = '0' + hex;
+        
+        return hex;
+
+      }
+
+  function hexToDecimal(hex){return parseInt(hex,16);}
+   
+  function returnOpposite(colour){
+      
+    return decimalToHex(255 - hexToDecimal(colour.substr(0,2))) + decimalToHex(255 - hexToDecimal(colour.substr(2,2))) + decimalToHex(255 - hexToDecimal(colour.substr(4,2)));
+      
+      }
+
+  function revertColor(rgb){
+
+    var color = returnOpposite(getHEX(rgb));
+        return 'rgb(' + (parseInt(color.charAt(0)+''+color.charAt(1),16)+','+parseInt(color.charAt(2)+''+color.charAt(3),16)+','+parseInt(color.charAt(4)+''+color.charAt(5),16)) + ')';
+
+      }
+
+  function invertColor(color) {
+
+    return "#" + ("000000" + (0xFFFFFF ^ parseInt(color.substring(1), 16)).toString(16)).slice(-6);                  
+
+    }
+
+  resetColors = function(){
+
+    var rgb = colorsArray[clicks].last,
+        revertedRGB = revertColor(rgb);
+
+        $taxi.css('background-color',revertedRGB);
+        $contact.css({'background-color':revertedRGB,'color':rgb});
+        $socialText.css({'color':rgb});
+        $about.css({'background-color':rgb,'color':revertedRGB});
+        $work.css({'background-color':rgb,'color':revertedRGB});
+
+    }
+
+  changeColors = function(arg){
+
+    var rgb = colorsArray[clicks].last,
+        revertedRGB = revertColor(rgb);
+
+        $taxi.css('background-color',revertedRGB);
+        $contact.css({'background-color':revertedRGB,'color':rgb});
+        $socialText.css({'color':rgb});
+        $about.css({'background-color':rgb,'color':revertedRGB});
+        $work.css({'background-color':rgb,'color':revertedRGB});
+
+    }
+
+  changeColorsPartially = function(){
+
+    var rgb = colorsArray[clicks].last;
+
+        $contact.css({'color':rgb});
+        $socialText.css({'color':rgb});
+        $about.css({'background-color':rgb});
+        $work.css({'background-color':rgb});
+
+    }
+
+  resetColorsPartially = function(){
+
+    var rgb = colorsArray[clicks].first;
+
+        $taxi.css('background-color',rgb);
+        $contact.css({'background-color':rgb});
+        $about.css({'color':rgb});
+        $work.css({'color':rgb});
+
+    }
+
+  changeColorsMobile = function(){
+
+    var rgb = colorsArray[clicks].last,
+        revertedRGB = revertColor(rgb);
+        
+        $taxi.css('background-color',revertedRGB);
+        $contact.css({'background-color':revertedRGB,'color':rgb});
+        $socialText.css({'color':rgb});
+        $about.css({'background-color':rgb,'color':revertedRGB});
+        $work.css({'background-color':rgb,'color':revertedRGB});
+
+    }
+
+  setColorsMain = function(initOnCPressArg,arg){
+
+    /*
+    if(!window.hasBeenPlayed && $loaderWrapper.is(':hidden') && $box.filter('.active').is('#work')) AudioHandler.onTogglePlay();
+    */
+
+    if(!initOnCPressArg && !elmBefore.is('#contact')) return;
+
+    setTimeout(function(){
+
+      setTransitions(true);
+
+      initOnCPress = initOnCPressArg;
+
+      !initOnCPressArg ? resetColors() : (!orientationPortrait_ || $win.width() > 757 ? changeColors() : changeColorsMobile());
+
+      initColorChanges(0);
+      if(!initOnCPress) resetColorsPartially();
+
+      initOnCPress ? animateSocialTextTitles($messages) : animateSocialTextTitles($messages,true); 
+
+      var transitionTriggered = 0;  
+        
+      $taxi.one(transitionEnd,function(){
+
+        setTransitions(false);
+
+        if(isMousedown) transitionTriggered = 1;
+
+        });
+
+      setTimeout(function(){
+
+        if(!transitionTriggered) setTransitions(false);
+
+        },siteColors.animeSpeed*1100);
+
+      },siteColors.animeSpeed*50);
+
+    }
+
+  function setTransitions(bool){
+
+      var addRemoveValue = bool ? 'background-color 1s, color 1s, fill 1s' : 'none';
+
+          $taxi.css('transition',addRemoveValue);
+          $contact.css('transition',addRemoveValue);
+          $socialText.css('transition',addRemoveValue);
+          $about.css('transition',addRemoveValue);
+          $work.css('transition',addRemoveValue);
+
+    }
+
+function initiallyZero_(angle){
+
+    for(var i = 0, item; i < initiallyZero.length; i++){
+
+      item = initiallyZero[i];
+
+      item.setAttribute('x1',angle+'%');
+      
+      item.setAttribute('y2',angle+'%');
+
+      }
+
+  }
+
+function zeroToHundred_(angle){
+
+    for(var i = 0, item, itemID, newAngle; i < zeroToHundred.length; i++){
+
+      item = zeroToHundred[i];
+      itemID = item.id;
+
+      newAngle = (itemID == '_115104856' || itemID == '_171897696' || itemID == '_114765880' || itemID == '_114668240' || itemID == '_115104304' || itemID == '_172160248' || itemID == '_114669200' || itemID == '_114764824' || itemID == '_114664352') && angle <= 15 ? '15%' : ((itemID == '_114666320' || itemID == '_114815040') && angle <= 35 ? '35%' : ((itemID == '_115105144') && angle <= 30) ? '30%' : ((itemID == '_115082856') && angle <= 25) ? '25%' : ((itemID == '_115090776' || itemID == '_114760152' || itemID == '_115083432') && angle <= 60) ? '60%' : ((itemID == '_114844264') && angle <= 120) ? '120%' : angle+'%');
+
+      item.setAttribute('x1',newAngle);
+           
+      item.setAttribute('y2',((itemID == '_114814440' || itemID == '_114669200' || itemID == '_114764824') && angle <= 10) ? '10%' : ((itemID == '_114664352') && angle <= 25) ? '25%' : ((itemID == '_115090776' || itemID == '_115083432') && angle <= 20) ? '20%' : ((itemID == '_114760152') && angle <= 50) ? '50%' : ((itemID == '_115105144') && angle <= 30) ? '30%' : ((itemID == '_114844264') && angle <= 100) ? '100%' : angle+'%');
+
+      }
+
+  }
+
+function unordered_(angle){
+
+  for(var i = 0, item, itemID; i < unordered.length; i++){
+
+    item = unordered[i];
+    itemID = item.id;
+
+    item.setAttribute('x1',-angle/1.5+'%');
+    
+    item.setAttribute('y2',angle*1.65+'%');
+
+    }
+
+  } 
+
+function initMousemove(e){
+
+  var angle = parseInt((e.pageX/windowWidth)*180);
+      y = parseInt((e.pageY/windowHeight)*100),
+      clicksDefined = colorsArray[clicks];
+
+      initiallyZero_(angle);   
+      zeroToHundred_(angle);
+      unordered_(angle);
+
+  }
+
+function initMousemoveMobile(event){
+
+  var e = event,
+      portrait = windowWidth > windowHeight,
+      x = portrait ? e.beta : e.gamma,
+      y = parseInt(Math.abs(portrait ? e.gamma : e.beta)),
+      clicksDefined = colorsArray[clicks];
+      x = Math.abs(x)*2;
+
+  var angle = parseInt(x*2);
+
+      initiallyZero_(angle);   
+      zeroToHundred_(angle);
+      unordered_(angle);
+
+  }
+
+function addMousemove(){
+
+  isMousedown ? window.addEventListener('mousemove',initMousemove,false) : window.addEventListener('deviceorientation',initMousemoveMobile,false);
+
+  } 
+
+function removeMousemove(){
+
+  isMousedown ? window.removeEventListener('mousemove',initMousemove) : window.removeEventListener('deviceorientation',initMousemoveMobile);
+
+  }
+
+function initColorChanges(changeClicks,dir){
+
+      removeMousemove();
+
+      if(changeClicks){
+
+        typeof dir == 'undefined' ? clicks += 1 : clicks += dir;
+
+        clicks = clicks > maximumChanges ? 0 : (clicks < 0 ? maximumChanges : clicks);
+
+        }
+
+  var clicksDefined = colorsArray[clicks],
+      revertedColor = initOnCPress ? revertColor(clicksDefined.last) : clicksDefined.first;
+
+      for(var i = 0, item, firstToLast, stops; i < linearGradients.length; i++){
+
+        item = linearGradients[i];
+
+        firstToLast = /first-to-last$/i.test(item.getAttribute('class'));
+
+        stops = item.getElementsByTagName('stop');
+
+        stops[firstToLast ? 1 : 0].setAttribute('stop-color',revertedColor);
+        stops[firstToLast ? 0 : 1].setAttribute('stop-color',clicksDefined.last)
+
+        }
+
+      var transitionTriggered = 0;
+
+      linearGradients[0].addEventListener(transitionEnd,function(){
+
+        addMousemove();
+
+        transitionTriggered = 1;
+
+        },false);
+
+      setTimeout(function(){
+
+        if(!transitionTriggered) addMousemove();
+
+        },siteColors.animeSpeed*1100);
+
+  }
+
+  changeTaxi = function($el,dir){
+  
+    if($el.id == 'taxi' && elmBefore.is('#taxi')){
+
+      setTransitions(true);
+
+      initColorChanges(1,dir);    
+      changeColorsPartially();
+
+      $about.one(transitionEnd,function(){
+
+        setTransitions(false);
+
+        });
+
+      }
+
+    }
+
+  var $win = $(window),
+      $siteColors = siteColors,
+      $elements_ = $('.box'),
+      $taxi = $('#taxi'),
+      $work = $('#work'),
+      $about = $('#about'),
+      $contact = $('#contact'),
+      $hoverText = $('.hover-text:not(.logo-hover-text)'),
+      $loaderWrapper = $('.loader-wrapper'),
+      initialColorsArray = [],
+      colorsArray = [
+
+                    {'last':'rgb(255,255,255)'},
+
+                    {'last':'rgb(255,0,255)'},
+
+                    {'last':'rgb(58,215,255)'},
+
+                    {'last':'rgb(255,0,137)'},
+                    
+                    {'last':'rgb(255,255,0)'},
+                    
+                    {'last':'rgb(232,1,12)'},
+                        
+                    {'last':'rgb(255,154,50)'},
+                    
+                    {'last':'rgb(2,550,0)'}
+
+                    ],
+      windowWidth = $win.width(),
+      windowHeight = $win.height(),
+      linearGradients = document.getElementsByTagName('linearGradient'),
+      initiallyZero = document.getElementsByClassName('initially-zero'),
+      zeroToHundred = document.getElementsByClassName('zero-to-hundred'),
+      unordered = document.getElementsByClassName('unordered'),
+      clicks = 0,
+      maximumChanges = colorsArray.length - 1,
+      orientationPortrait_ = windowWidth <= windowHeight,
+      isWindowsTouch,
+      isTouch,
+      edown = 'mousedown',
+      emove = 'mousemove',
+      eup = 'mouseup'; 
+
+      (function(elm,elm2){
+
+        isWindowsTouch = (function(elm){ return elm.PointerEvent || elm.navigator.msPointerEnabled; })(elm);
+        isTouch = (function(elm){ return 'createTouch' in elm.document && "ontouchstart" in elm; })(elm);
+
+          if(isWindowsTouch){
+
+            if(elm.PointerEvent) {
+              
+              edown = 'pointerdown';
+              emove = 'pointermove';
+              eup = 'pointerup';
+              
+              }else{
+
+                edown = 'MSPointerDown';
+                  emove = 'MSPointerMove';
+                  eup = 'MSPointerUp';
+              
+                }
+
+            }else if(isTouch){
+
+              edown = 'touchstart';
+              emove = 'touchmove';
+              eup = 'touchend';
+
+            }
+
+        })(window,document);
+
+  for(var v = 0, colorsArrayItem; v < colorsArray.length; v++){
+
+    colorsArrayItem = colorsArray[v];
+
+    if(!('first' in colorsArrayItem)) colorsArrayItem.first = 'rgb(0,0,0)';
+
+    }
+
+  $box.mousedown(function(e){
+
+    changeTaxi(this);
+    
+    });
+
+  var isMousedown = 0;
+
+  if(edown == 'mousedown'){
+
+    isMousedown = 1;
+
+    window.addEventListener('mousemove',initMousemove,false);
+
+    }
+
+  window.addEventListener('deviceorientation',initMousemoveMobile,false);
+
+  $win.keydown(function(e){
+
+    var key = e.keyCode;
+
+        if(key == 32){
+
+          initOnSpacebar += 1;
+
+          if(initOnSpacebar >= 5) initOnSpacebar = 1;
+
+          switch(initOnSpacebar){
+            case 1: activate_box_modified($taxi);
+            break;
+            case 2: activate_box_modified($work);
+            break;
+            case 3: activate_box_modified($contact);
+            break;
+            case 4: activate_box_modified($about);
+            break;
+            }
+
+          }else if(key == 27){
+
+            e.preventDefault();
+
+          }
+
+  });
+
+window.addEventListener('resize',function(){
+
+var winWidth = $win.width(),
+    winHeight = $win.height(),
+    orientationPortrait = winWidth <= winHeight;
+
+    windowWidth = winWidth;
+    windowHeight = winHeight;
+    
+    if(orientationPortrait && winWidth <= 840){
+
+      if(!orientationPortrait_) $hoverText.css('fontSize',winWidth <= 480 ? $font_size_mobile : $font_size);
+
+      orientationPortrait_ = 1;
+
+      // $elements_.css({'display':'block','width':'100%','height':'64'+'%','left':'','right':'','top':'','bottom':'','position':'relative'});
+      // $('.box:not(.active)').css({'height':'12'+'%'});
+
+
+    }
+
+},false);
+
+$('.content-text-taxi').swipe({
+
+  swipe:function(event, direction, distance, duration, fingerCount){
+
+    changeTaxi($taxi[0],direction == 'left' ? 1 : -1);
+    
+    event.stopPropagation();
+
+    }
+
+  });
+
+});
+
+</script>
+
+</body>
+</html>
