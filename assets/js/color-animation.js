@@ -12,7 +12,9 @@ var siteColors,
     initOnSpacebar = 1,
     changeTaxi,
     browserIsSafari = /Safari/.test(navigator.userAgent) && /Apple Computer/.test(navigator.vendor),
-	transitionEnd = browserIsSafari ? 'webkitTransitionEnd' : 'transitionend';
+	transitionEnd = browserIsSafari ? 'webkitTransitionEnd' : 'transitionend',
+	spaceBar = false,
+	spaceBarHitOneTime = false;
 	
 
 	siteColors = {
@@ -92,7 +94,8 @@ $(function(){
 	var rgb = colorsArray[clicks].last;
 	
 	if(rgb == "rgb(255,255,255)") {
-		$taxi.css('background-color',"rgb(211,211,211)");
+
+		$taxi.css('background-color',"rgb(255,255,255)");
 		return;
 	}
 
@@ -343,19 +346,32 @@ function initColorChanges(changeClicks,dir){
 
             }
 
-        })(window,document);
+		})(window,document);
+		
+		function assignFirstColor() {
+			for(var v = 0, colorsArrayItem; v < colorsArray.length; v++){
 
-  for(var v = 0, colorsArrayItem; v < colorsArray.length; v++){
+				colorsArrayItem = colorsArray[v];
+			
+				if(spaceBar) {
+					colorsArrayItem.first = revertColor(colorsArrayItem.last);
+				} 
+				else {
+					colorsArrayItem.first = 'rgb(0,0,0)';
+				}
+			
+			}
+		}
+		assignFirstColor();
 
-    colorsArrayItem = colorsArray[v];
-
-    if(!('first' in colorsArrayItem)) colorsArrayItem.first = 'rgb(0,0,0)';
-
-    }
+  
 
   $box.mousedown(function(e){
 
 	changeTaxi(this);
+	if(spaceBar == true) {
+		changeColors();
+	}
     
     });
 
@@ -378,6 +394,13 @@ function initColorChanges(changeClicks,dir){
         if(key == 32){
 
 			changeColors();
+			
+			if(!spaceBarHitOneTime) {
+				spaceBar = true;
+				spaceBarHitOneTime = true;
+				assignFirstColor();
+			}
+			
 		}
 	});
 
