@@ -61,7 +61,7 @@
 }
 
 .copy-bg-parent {
-  /*background-color: #00ff01;*/
+  /* background-color: #00ff01; */
 }
 
 .logoImg {
@@ -104,19 +104,6 @@
   opacity: 0;
   -webkit-transition: opacity 3s;
   transition: opacity 3s;
-}
-
-#work .tumblr-post svg,
-#contact .tumblr-post svg{
-  display: block;
-  width: 55%;
-  height: 65%;
-  margin: 0 auto;
-}
-
-#about .tumblr-post svg{
-  width: 40%;
-  height: 19%;
 }
 
 .tumblr-description {
