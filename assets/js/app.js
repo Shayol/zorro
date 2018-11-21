@@ -1,3 +1,5 @@
+// nothing except taxi and some wars are needed
+
 var $twitter_box = $('#twttr-box'),
     $messages = null,
     months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'June', 'July', 'Aug', 'Sept', 'Oct', 'Nov', 'Dec'];
