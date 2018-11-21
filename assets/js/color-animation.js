@@ -392,10 +392,9 @@ function initColorChanges(changeClicks,dir){
     var key = e.keyCode;
 
         if(key == 32){
-
-			changeColors();
 			
 			if(!spaceBarHitOneTime) {
+				changeColors();
 				spaceBar = true;
 				spaceBarHitOneTime = true;
 				assignFirstColor();
@@ -412,6 +411,26 @@ function initColorChanges(changeClicks,dir){
 					stops = item.getElementsByTagName('stop');
 
 					stops[firstToLast ? 1 : 0].setAttribute('stop-color',revertedColor);
+					stops[firstToLast ? 0 : 1].setAttribute('stop-color',clicksDefined.last)
+
+        		}
+			}
+			else {
+				spaceBarHitOneTime = false;
+				spaceBar = false;
+				assignFirstColor();
+				$taxi.css('background-color',"rgb(0,0,0)");
+				var clicksDefined = colorsArray[clicks];
+
+				for(var i = 0, item, firstToLast, stops; i < linearGradients.length; i++){
+
+					item = linearGradients[i];
+
+					firstToLast = /first-to-last$/i.test(item.getAttribute('class'));
+
+					stops = item.getElementsByTagName('stop');
+
+					stops[firstToLast ? 1 : 0].setAttribute('stop-color','rgb(0,0,0)');
 					stops[firstToLast ? 0 : 1].setAttribute('stop-color',clicksDefined.last)
 
         		}
