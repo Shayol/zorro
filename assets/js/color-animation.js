@@ -92,12 +92,6 @@ $(function(){
   changeColors = function(arg){
 
 	var rgb = colorsArray[clicks].last;
-	
-	if(rgb == "rgb(255,255,255)") {
-
-		$taxi.css('background-color',"rgb(255,255,255)");
-		return;
-	}
 
 	var revertedRGB = revertColor(rgb);
 
