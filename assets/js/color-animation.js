@@ -353,9 +353,9 @@ function initColorChanges(changeClicks,dir){
 
 				colorsArrayItem = colorsArray[v];
 			
-				if(spaceBar) {
+				 if(spaceBar) {
 					colorsArrayItem.first = revertColor(colorsArrayItem.last);
-				} 
+				}
 				else {
 					colorsArrayItem.first = 'rgb(0,0,0)';
 				}
@@ -399,6 +399,22 @@ function initColorChanges(changeClicks,dir){
 				spaceBar = true;
 				spaceBarHitOneTime = true;
 				assignFirstColor();
+
+				var clicksDefined = colorsArray[clicks],
+				revertedColor = revertColor(clicksDefined.last);
+
+				for(var i = 0, item, firstToLast, stops; i < linearGradients.length; i++){
+
+					item = linearGradients[i];
+
+					firstToLast = /first-to-last$/i.test(item.getAttribute('class'));
+
+					stops = item.getElementsByTagName('stop');
+
+					stops[firstToLast ? 1 : 0].setAttribute('stop-color',revertedColor);
+					stops[firstToLast ? 0 : 1].setAttribute('stop-color',clicksDefined.last)
+
+        		}
 			}
 			
 		}
