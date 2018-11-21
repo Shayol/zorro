@@ -12,7 +12,7 @@ var siteColors,
     initOnSpacebar = 1,
     changeTaxi,
     browserIsSafari = /Safari/.test(navigator.userAgent) && /Apple Computer/.test(navigator.vendor),
-    transitionEnd = browserIsSafari ? 'webkitTransitionEnd' : 'transitionend';
+	transitionEnd = browserIsSafari ? 'webkitTransitionEnd' : 'transitionend';
 	
 
 	siteColors = {
@@ -92,7 +92,7 @@ $(function(){
 	var rgb = colorsArray[clicks].last;
 	
 	if(rgb == "rgb(255,255,255)") {
-		$taxi.css('background-color',"rgb(192,192,192)");
+		$taxi.css('background-color',"rgb(211,211,211)");
 		return;
 	}
 
@@ -356,7 +356,6 @@ function initColorChanges(changeClicks,dir){
   $box.mousedown(function(e){
 
 	changeTaxi(this);
-	$taxi.css('background-color',"rgb(0,0,0)");
     
     });
 
