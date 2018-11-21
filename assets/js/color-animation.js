@@ -3,7 +3,6 @@ var siteColors,
     resetColors,
     resetColorsPartially,
     changeColors,
-    changeColorsPartially,
     changeColorsMobile,
 	setColorsMain;
 	
@@ -90,18 +89,16 @@ $(function(){
 
   changeColors = function(arg){
 
-    var rgb = colorsArray[clicks].last,
-        revertedRGB = revertColor(rgb);
+	var rgb = colorsArray[clicks].last;
+	
+	if(rgb == "rgb(255,255,255)") {
+		$taxi.css('background-color',"rgb(192,192,192)");
+		return;
+	}
 
-        $taxi.css('background-color',revertedRGB);
+	var revertedRGB = revertColor(rgb);
 
-    }
-
-  changeColorsPartially = function(){
-
-    var rgb = colorsArray[clicks].last;
-
-        $contact.css({'color':rgb});
+    $taxi.css('background-color',revertedRGB);
 
     }
 
@@ -272,7 +269,6 @@ function initColorChanges(changeClicks,dir){
       setTransitions(true);
 
       initColorChanges(1,dir);    
-      changeColorsPartially();
 
 
       }
@@ -359,7 +355,8 @@ function initColorChanges(changeClicks,dir){
 
   $box.mousedown(function(e){
 
-    changeTaxi(this);
+	changeTaxi(this);
+	$taxi.css('background-color',"rgb(0,0,0)");
     
     });
 
@@ -375,7 +372,15 @@ function initColorChanges(changeClicks,dir){
 
   window.addEventListener('deviceorientation',initMousemoveMobile,false);
 
+  $win.keydown(function(e){
 
+    var key = e.keyCode;
+
+        if(key == 32){
+
+			changeColors();
+		}
+	});
 
 });
 
