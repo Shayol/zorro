@@ -12,15 +12,7 @@ $(document).ready(function(){
 	// build data object from site colors and animation speed ::
 
 	siteColors = {
-		taxiBg: $('.Color-taxi').css('background-color'),
-		taxiText: $('.Color-taxi').css('color'),
-		workBg: $('.Color-work').css('background-color'),
-		workText: $('.Color-work').css('color'),
-		contactBg: $('.Color-contact').css('background-color'),
-		contactText: $('.Color-contact').css('color'),
-		aboutBg: $('.Color-about').css('background-color'),
-		aboutText: $('.Color-about').css('color'),
-		animeSpeed : parseFloat($('.transitionTime').css('transition-duration'))
+		animeSpeed : 1
 	}
 
 	setTimeout(function(){
